@@ -24,7 +24,6 @@ Partial Class frmMain
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
-        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New System.Windows.Forms.ListViewItem.ListViewSubItem() {New System.Windows.Forms.ListViewItem.ListViewSubItem(Nothing, "Line Of Duty", System.Drawing.SystemColors.WindowText, System.Drawing.SystemColors.Window, New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))), New System.Windows.Forms.ListViewItem.ListViewSubItem(Nothing, "BBC One"), New System.Windows.Forms.ListViewItem.ListViewSubItem(Nothing, "HD", System.Drawing.Color.RoyalBlue, System.Drawing.SystemColors.Window, New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))), New System.Windows.Forms.ListViewItem.ListViewSubItem(Nothing, ""), New System.Windows.Forms.ListViewItem.ListViewSubItem(Nothing, "23 / 23", System.Drawing.SystemColors.WindowText, System.Drawing.Color.Honeydew, New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))), New System.Windows.Forms.ListViewItem.ListViewSubItem(Nothing, "11.44 GB"), New System.Windows.Forms.ListViewItem.ListViewSubItem(Nothing, "Continuing")}, 0)
         Me.msMain = New System.Windows.Forms.MenuStrip()
         Me.tsmiMainFile = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmiMainRefresh = New System.Windows.Forms.ToolStripMenuItem()
@@ -57,6 +56,8 @@ Partial Class frmMain
         Me.tsmiShowRefresh = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmiShowUpdate = New System.Windows.Forms.ToolStripMenuItem()
         Me.tssShow2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.OpenBrowserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsmiShowRemove = New System.Windows.Forms.ToolStripMenuItem()
         Me.gbStats = New System.Windows.Forms.GroupBox()
         Me.lblStatsTotalEp = New System.Windows.Forms.Label()
@@ -64,8 +65,6 @@ Partial Class frmMain
         Me.lblStatsActiveShows = New System.Windows.Forms.Label()
         Me.lblStatsTotalShows = New System.Windows.Forms.Label()
         Me.pbLogo = New System.Windows.Forms.PictureBox()
-        Me.OpenBrowserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.msMain.SuspendLayout()
         Me.cmsShows.SuspendLayout()
         Me.gbStats.SuspendLayout()
@@ -92,31 +91,31 @@ Partial Class frmMain
         '
         Me.tsmiMainRefresh.Image = Global.SickChill_Desktop.My.Resources.Resources.refresh
         Me.tsmiMainRefresh.Name = "tsmiMainRefresh"
-        Me.tsmiMainRefresh.Size = New System.Drawing.Size(180, 22)
+        Me.tsmiMainRefresh.Size = New System.Drawing.Size(148, 22)
         Me.tsmiMainRefresh.Text = "Refresh"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(145, 6)
         '
         'tsmiMainBrowser
         '
         Me.tsmiMainBrowser.Image = Global.SickChill_Desktop.My.Resources.Resources.browser
         Me.tsmiMainBrowser.Name = "tsmiMainBrowser"
-        Me.tsmiMainBrowser.Size = New System.Drawing.Size(180, 22)
+        Me.tsmiMainBrowser.Size = New System.Drawing.Size(148, 22)
         Me.tsmiMainBrowser.Text = "Open Browser"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(145, 6)
         '
         'tsmiMainExit
         '
         Me.tsmiMainExit.Image = CType(resources.GetObject("tsmiMainExit.Image"), System.Drawing.Image)
         Me.tsmiMainExit.Name = "tsmiMainExit"
-        Me.tsmiMainExit.Size = New System.Drawing.Size(180, 22)
+        Me.tsmiMainExit.Size = New System.Drawing.Size(148, 22)
         Me.tsmiMainExit.Text = "Exit"
         '
         'tsmiMainManage
@@ -187,15 +186,11 @@ Partial Class frmMain
         Me.lvShowList.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lvShowList.FullRowSelect = True
         Me.lvShowList.GridLines = True
-        Me.lvShowList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        ListViewItem1.StateImageIndex = 0
-        ListViewItem1.ToolTipText = "Testing 121345"
-        ListViewItem1.UseItemStyleForSubItems = False
-        Me.lvShowList.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1})
         Me.lvShowList.Location = New System.Drawing.Point(12, 99)
         Me.lvShowList.MultiSelect = False
         Me.lvShowList.Name = "lvShowList"
         Me.lvShowList.Size = New System.Drawing.Size(987, 671)
+        Me.lvShowList.Sorting = System.Windows.Forms.SortOrder.Ascending
         Me.lvShowList.TabIndex = 3
         Me.lvShowList.UseCompatibleStateImageBehavior = False
         Me.lvShowList.View = System.Windows.Forms.View.Details
@@ -245,51 +240,63 @@ Partial Class frmMain
         '
         Me.cmsShows.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmiShowEdit, Me.tsmiShowPause, Me.tssShow1, Me.tsmiShowRefresh, Me.tsmiShowUpdate, Me.tssShow2, Me.OpenBrowserToolStripMenuItem, Me.ToolStripSeparator5, Me.tsmiShowRemove})
         Me.cmsShows.Name = "cmsShows"
-        Me.cmsShows.Size = New System.Drawing.Size(181, 176)
+        Me.cmsShows.Size = New System.Drawing.Size(149, 154)
         '
         'tsmiShowEdit
         '
         Me.tsmiShowEdit.Image = Global.SickChill_Desktop.My.Resources.Resources.edit
         Me.tsmiShowEdit.Name = "tsmiShowEdit"
-        Me.tsmiShowEdit.Size = New System.Drawing.Size(180, 22)
+        Me.tsmiShowEdit.Size = New System.Drawing.Size(148, 22)
         Me.tsmiShowEdit.Text = "Edit"
         '
         'tsmiShowPause
         '
         Me.tsmiShowPause.Image = Global.SickChill_Desktop.My.Resources.Resources.pause
         Me.tsmiShowPause.Name = "tsmiShowPause"
-        Me.tsmiShowPause.Size = New System.Drawing.Size(180, 22)
+        Me.tsmiShowPause.Size = New System.Drawing.Size(148, 22)
         Me.tsmiShowPause.Text = "Pause"
         '
         'tssShow1
         '
         Me.tssShow1.Name = "tssShow1"
-        Me.tssShow1.Size = New System.Drawing.Size(177, 6)
+        Me.tssShow1.Size = New System.Drawing.Size(145, 6)
         '
         'tsmiShowRefresh
         '
         Me.tsmiShowRefresh.Image = Global.SickChill_Desktop.My.Resources.Resources.refresh
         Me.tsmiShowRefresh.Name = "tsmiShowRefresh"
-        Me.tsmiShowRefresh.Size = New System.Drawing.Size(180, 22)
+        Me.tsmiShowRefresh.Size = New System.Drawing.Size(148, 22)
         Me.tsmiShowRefresh.Text = "Refresh"
         '
         'tsmiShowUpdate
         '
         Me.tsmiShowUpdate.Image = Global.SickChill_Desktop.My.Resources.Resources.update
         Me.tsmiShowUpdate.Name = "tsmiShowUpdate"
-        Me.tsmiShowUpdate.Size = New System.Drawing.Size(180, 22)
+        Me.tsmiShowUpdate.Size = New System.Drawing.Size(148, 22)
         Me.tsmiShowUpdate.Text = "Update"
         '
         'tssShow2
         '
         Me.tssShow2.Name = "tssShow2"
-        Me.tssShow2.Size = New System.Drawing.Size(177, 6)
+        Me.tssShow2.Size = New System.Drawing.Size(145, 6)
+        '
+        'OpenBrowserToolStripMenuItem
+        '
+        Me.OpenBrowserToolStripMenuItem.Image = Global.SickChill_Desktop.My.Resources.Resources.browser
+        Me.OpenBrowserToolStripMenuItem.Name = "OpenBrowserToolStripMenuItem"
+        Me.OpenBrowserToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.OpenBrowserToolStripMenuItem.Text = "Open Browser"
+        '
+        'ToolStripSeparator5
+        '
+        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(145, 6)
         '
         'tsmiShowRemove
         '
         Me.tsmiShowRemove.Image = Global.SickChill_Desktop.My.Resources.Resources.remove
         Me.tsmiShowRemove.Name = "tsmiShowRemove"
-        Me.tsmiShowRemove.Size = New System.Drawing.Size(180, 22)
+        Me.tsmiShowRemove.Size = New System.Drawing.Size(148, 22)
         Me.tsmiShowRemove.Text = "Remove"
         '
         'gbStats
@@ -357,18 +364,6 @@ Partial Class frmMain
         Me.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.pbLogo.TabIndex = 0
         Me.pbLogo.TabStop = False
-        '
-        'OpenBrowserToolStripMenuItem
-        '
-        Me.OpenBrowserToolStripMenuItem.Image = Global.SickChill_Desktop.My.Resources.Resources.browser
-        Me.OpenBrowserToolStripMenuItem.Name = "OpenBrowserToolStripMenuItem"
-        Me.OpenBrowserToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.OpenBrowserToolStripMenuItem.Text = "Open Browser"
-        '
-        'ToolStripSeparator5
-        '
-        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(177, 6)
         '
         'frmMain
         '

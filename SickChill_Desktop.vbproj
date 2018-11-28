@@ -80,6 +80,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmHistory.Designer.vb">
+      <DependentUpon>frmHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -99,7 +105,10 @@
     <Compile Include="frmShow.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="JSON\EpisodeList.vb" />
+    <Compile Include="JSON\History.vb" />
     <Compile Include="JSON\showInfo.vb" />
+    <Compile Include="JSON\ShowList.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -117,6 +126,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmHistory.resx">
+      <DependentUpon>frmHistory.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +168,8 @@
     <None Include="Resources\exit.png" />
     <None Include="Resources\edit.png" />
     <None Include="Resources\addTvShow.png" />
+    <None Include="Resources\file.png" />
+    <None Include="Resources\folder.png" />
     <Content Include="Resources\icon.ico" />
     <None Include="Resources\sickchill.png" />
   </ItemGroup>

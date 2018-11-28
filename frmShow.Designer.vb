@@ -23,13 +23,11 @@ Partial Class frmShow
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"1", "Episode 1", "", "26/06/2012, 09:00 PM", "Archived (Unknown)"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Honeydew, Nothing)
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmShow))
         Me.lblShowName = New System.Windows.Forms.Label()
         Me.cmsShow = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.OpenFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenFolderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.gbShowDetails = New System.Windows.Forms.GroupBox()
         Me.lblShowStatus = New System.Windows.Forms.Label()
@@ -56,22 +54,14 @@ Partial Class frmShow
         Me.lblGenres = New System.Windows.Forms.Label()
         Me.btnTVDB = New System.Windows.Forms.Button()
         Me.btnIMDb = New System.Windows.Forms.Button()
-        Me.Test = New System.Windows.Forms.TabPage()
-        Me.lvSeason1 = New System.Windows.Forms.ListView()
-        Me.chEpisode = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chSize = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chAirdate = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chStatus = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.btnRemove = New System.Windows.Forms.Button()
         Me.tcSeasons = New System.Windows.Forms.TabControl()
         Me.pbnetworkLogo = New System.Windows.Forms.PictureBox()
+        Me.OpenFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pbShowPoster = New System.Windows.Forms.PictureBox()
         Me.cmsShow.SuspendLayout()
         Me.gbShowDetails.SuspendLayout()
         Me.gbInformation.SuspendLayout()
-        Me.Test.SuspendLayout()
-        Me.tcSeasons.SuspendLayout()
         CType(Me.pbnetworkLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbShowPoster, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -103,14 +93,9 @@ Partial Class frmShow
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(136, 6)
         '
-        'OpenFileToolStripMenuItem
-        '
-        Me.OpenFileToolStripMenuItem.Name = "OpenFileToolStripMenuItem"
-        Me.OpenFileToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
-        Me.OpenFileToolStripMenuItem.Text = "Open File"
-        '
         'OpenFolderToolStripMenuItem
         '
+        Me.OpenFolderToolStripMenuItem.Image = Global.SickChill_Desktop.My.Resources.Resources.folder
         Me.OpenFolderToolStripMenuItem.Name = "OpenFolderToolStripMenuItem"
         Me.OpenFolderToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
         Me.OpenFolderToolStripMenuItem.Text = "Open Folder"
@@ -358,61 +343,6 @@ Partial Class frmShow
         Me.btnIMDb.Text = "IMDb"
         Me.btnIMDb.UseVisualStyleBackColor = True
         '
-        'Test
-        '
-        Me.Test.Controls.Add(Me.lvSeason1)
-        Me.Test.Location = New System.Drawing.Point(4, 22)
-        Me.Test.Name = "Test"
-        Me.Test.Padding = New System.Windows.Forms.Padding(3)
-        Me.Test.Size = New System.Drawing.Size(711, 299)
-        Me.Test.TabIndex = 0
-        Me.Test.Text = "Season 1"
-        Me.Test.UseVisualStyleBackColor = True
-        '
-        'lvSeason1
-        '
-        Me.lvSeason1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chEpisode, Me.chName, Me.chSize, Me.chAirdate, Me.chStatus})
-        Me.lvSeason1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lvSeason1.FullRowSelect = True
-        Me.lvSeason1.GridLines = True
-        Me.lvSeason1.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1})
-        Me.lvSeason1.Location = New System.Drawing.Point(3, 3)
-        Me.lvSeason1.MultiSelect = False
-        Me.lvSeason1.Name = "lvSeason1"
-        Me.lvSeason1.Size = New System.Drawing.Size(705, 293)
-        Me.lvSeason1.TabIndex = 0
-        Me.lvSeason1.UseCompatibleStateImageBehavior = False
-        Me.lvSeason1.View = System.Windows.Forms.View.Details
-        '
-        'chEpisode
-        '
-        Me.chEpisode.Text = "Episode"
-        Me.chEpisode.Width = 67
-        '
-        'chName
-        '
-        Me.chName.Text = "Name"
-        Me.chName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.chName.Width = 238
-        '
-        'chSize
-        '
-        Me.chSize.Text = "Size"
-        Me.chSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.chSize.Width = 79
-        '
-        'chAirdate
-        '
-        Me.chAirdate.Text = "Airdate"
-        Me.chAirdate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.chAirdate.Width = 145
-        '
-        'chStatus
-        '
-        Me.chStatus.Text = "Status"
-        Me.chStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.chStatus.Width = 148
-        '
         'btnRemove
         '
         Me.btnRemove.Location = New System.Drawing.Point(631, 321)
@@ -425,7 +355,6 @@ Partial Class frmShow
         'tcSeasons
         '
         Me.tcSeasons.ContextMenuStrip = Me.cmsShow
-        Me.tcSeasons.Controls.Add(Me.Test)
         Me.tcSeasons.Location = New System.Drawing.Point(12, 350)
         Me.tcSeasons.Name = "tcSeasons"
         Me.tcSeasons.SelectedIndex = 0
@@ -440,6 +369,13 @@ Partial Class frmShow
         Me.pbnetworkLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.pbnetworkLogo.TabIndex = 5
         Me.pbnetworkLogo.TabStop = False
+        '
+        'OpenFileToolStripMenuItem
+        '
+        Me.OpenFileToolStripMenuItem.Image = Global.SickChill_Desktop.My.Resources.Resources.file
+        Me.OpenFileToolStripMenuItem.Name = "OpenFileToolStripMenuItem"
+        Me.OpenFileToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.OpenFileToolStripMenuItem.Text = "Open File"
         '
         'pbShowPoster
         '
@@ -482,8 +418,6 @@ Partial Class frmShow
         Me.gbShowDetails.PerformLayout()
         Me.gbInformation.ResumeLayout(False)
         Me.gbInformation.PerformLayout()
-        Me.Test.ResumeLayout(False)
-        Me.tcSeasons.ResumeLayout(False)
         CType(Me.pbnetworkLogo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbShowPoster, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -510,13 +444,6 @@ Partial Class frmShow
     Friend WithEvents lblQuality As Label
     Friend WithEvents btnTVDB As Button
     Friend WithEvents btnIMDb As Button
-    Friend WithEvents Test As TabPage
-    Friend WithEvents lvSeason1 As ListView
-    Friend WithEvents chEpisode As ColumnHeader
-    Friend WithEvents chName As ColumnHeader
-    Friend WithEvents chSize As ColumnHeader
-    Friend WithEvents chAirdate As ColumnHeader
-    Friend WithEvents chStatus As ColumnHeader
     Friend WithEvents btnRemove As Button
     Friend WithEvents tcSeasons As TabControl
     Friend WithEvents SearchToolStripMenuItem As ToolStripMenuItem
